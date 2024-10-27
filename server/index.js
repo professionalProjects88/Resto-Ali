@@ -4,5 +4,5 @@ const app = express();
 const port = 3001;
 
 app.listen(port, () => {
-    console.log(`Server is connected !!`);
+    console.log(`Server is listeing on ${port}`);
 });
