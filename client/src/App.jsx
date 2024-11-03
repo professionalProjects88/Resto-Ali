@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import './App.css';
-import Inbording from "./Components/inbording/Page.jsx"
+import Logo from "./Components/logo/Page.jsx"
+import NavBar from "./Components/header/Page.jsx"
+import "./App.css"
 function App() {
     return (
-       
-        <Inbording/>
+    <div className='headerContainer'>
+        <Logo/>
+        <NavBar/>
+    </div>
     );
 }
 
