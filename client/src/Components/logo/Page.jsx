@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../images/logo.JPG'
+import logo from '../../images/IRSH0676.PNG'
 import './Page.css'
 const Page = () => {
   return (
