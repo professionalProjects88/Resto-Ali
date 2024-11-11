@@ -1,10 +1,11 @@
-header{
+header {
     display: flex;
-    height: 100px;
     justify-content: center;
-    margin-top: -180px;
-}
-.nav{
+    height: 100px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav {
     margin-left: 20px;
     color: black;
     padding: 3px;
@@ -12,54 +13,34 @@ header{
     cursor: pointer;
     font-size: 30px;
     font-weight: bold;
-}
-@media (max-width: 930px){
-    header{
-        margin-left: 150px;
-        
-    }
-}
-@media (max-width: 768px){
-    header{
-        margin-top: -130px;
-        margin-left: 0px;
-        
-    }
-    .nav{
-        font-size: 22px;
-    }
-}
-@media (max-width: 660px){
-    header{
-        margin-left: 30px;
-        
-    }
-    .nav{
-        font-size: 18px;
-    }
-}
-@media (max-width: 570px){
-    header{
-        margin-left: 80px;
-        margin-top: -130px;
-    }
-    .nav{
-        font-size: 20px;
-    }
-}
-@media (max-width: 375px){
-    header{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 230px;
-        margin-left: -16px;
-    }
-    .nav{
-        font-size: 20px;
-    }
-}
-
-.nav:hover{
+  }
+  
+  .nav:hover {
     text-decoration: underline;
-}
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      display: none; 
+      flex-direction: column;
+    }
+    header.active {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+      color: black;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+  }
+  
