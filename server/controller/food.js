@@ -21,8 +21,15 @@ module.exports = {
 
       res.status(200).json(newFood); 
     } catch (error) {
-      console.error("Error creating food: " + error);
-      res.status(500).json({ error: "Failed to add food" }); // Use correct method
+      throw(error);
     }
   },
+  getFood:async(req,res)=>{
+    try {
+        const allFood=await food.findMany({})
+        res.status(200).json(allFood)
+    } catch (error) {
+        throw(error)
+    }
+  }
 };

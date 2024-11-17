@@ -1,0 +1,17 @@
+.mianFoodContainer {
+    height: auto;
+    margin-left: 200px;
+    display: flex;
+    justify-content: flex-start; 
+    padding: 10px; 
+    gap: 50px;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+
+.foodCards {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+}
