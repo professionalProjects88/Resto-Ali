@@ -13,10 +13,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
+enum Categorie {
+  Sandwiches
+  Tacos
+  Burgers
+  Plats
+  Salades
+  TexMex
+  Boissons
+  Desserts
+}
+
+model Food {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  imgUrl String
+  categorie Categorie
+  detail    String
+  price     Float
 }
