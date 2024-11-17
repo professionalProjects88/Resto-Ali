@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NavBar from "./Components/header/Page.jsx"
+import Home from "./Components/home/Page.jsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css"
 function App() {
@@ -8,7 +9,7 @@ function App() {
         <NavBar/>
         <BrowserRouter>
             <Routes>
-            {/* <Route path='/' element={<a>home</a>}/> */}
+            <Route path='/' element={<Home/>}/>
             {/* <Route path='/*' element={<a>not found</a>}/> */}
             </Routes>
         </BrowserRouter>
