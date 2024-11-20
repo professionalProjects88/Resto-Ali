@@ -1,42 +1,34 @@
-import React,{useEffect,useState} from 'react'
-import {useSelector,useDispatch} from 'react-redux'
-import {fetchfood} from "../../reducers/getAll"
-import './page.css'
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchfood } from "../../reducers/getAll";
+import './page.css';
+
 const Page = () => {
+    const dispatch = useDispatch();
+    const [food, setFood] = useState([]);
 
-    const dispatch = useDispatch()
-    
-    const {food,setFood}=useState([])
+    const fetchFood = async () => {
+        try {
+            const result = await dispatch(fetchfood());
+            setFood(result.payload);
+        } catch (err) {
+            console.log("Error:", err);
+        }
+    };
 
-    const fetchFood=()=>{
-        dispatch(fetchfood())
-        .then(data=>{
-            setFood(data.payload);
-            
-        })
-        .catch(err=>console.log("error : ",err))
-    }
-    useEffect(
-        fetchFood,
-        console.log(food)
-        
-        ,[])
-    
-
+    useEffect(() => {
+        fetchFood();
+    }, []);
   return (
     <div className='mianFoodContainer'>
-      <div className='foodCards'>
-
-      </div>
-      <div className='foodCards'>
-
-      </div>
-      <div className='foodCards'>
-
-      </div>
-      <div className='foodCards'>
-
-      </div>
+      {food.map(e=>{
+        return<div key={e.id} className='foodCards'>
+        <img className='cardsImg' src={e.imgUrl} alt={e.detail} />
+        <h2>{e.categorie} {e.detail}</h2>
+        <h1>Prix : {e.price.toFixed(2)}</h1>
+      </div>})}
+      
+      
     </div>
   )
 }
