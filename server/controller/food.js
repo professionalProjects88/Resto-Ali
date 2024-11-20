@@ -6,7 +6,7 @@ module.exports = {
       const { imgUrl,categorie, detail, price } = req.body;
 
       
-      if (!categorie || !detail || !price) {
+      if (!categorie || !detail || !price ||!imgUrl) {
         return res.status(400).json({ error: "All fields are required" });
       }
 
