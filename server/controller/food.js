@@ -27,7 +27,7 @@ module.exports = {
   getFood:async(req,res)=>{
     try {
         const allFood=await food.findMany({})
-        res.status(200).json(allFood)
+        res.status(200).json(allFood.reverse())
     } catch (error) {
         throw(error)
     }
