@@ -13,6 +13,8 @@ header {
     cursor: pointer;
     font-size: 30px;
     font-weight: bold;
+    font-family: "Sour Gummy", sans-serif;
+
   }
   
   .nav:hover {

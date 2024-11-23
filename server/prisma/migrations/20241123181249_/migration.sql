@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "Categorie" AS ENUM ('Sandwiches', 'Tacos', 'Burgers', 'Plats', 'Salades', 'TexMex', 'Boissons', 'Desserts');
+CREATE TYPE "Categorie" AS ENUM ('Sandwiche', 'Taco', 'Burger', 'Plat', 'Pizza', 'Salade', 'TexMex', 'Boisson', 'Dessert');
 
 -- CreateTable
 CREATE TABLE "Food" (
