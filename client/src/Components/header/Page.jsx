@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './page.css'; 
 import { TiThMenu } from "react-icons/ti";
+import {useNavigate} from "react-router-dom"
+
+
 
 const Page = () => {
+  const navigate=useNavigate()
   const [menu, setMenu] = useState(false);
   const [nav,setNav]=useState("home");
 
@@ -14,13 +18,16 @@ const Page = () => {
   const handleNav=(nav)=>{
     setNav(nav)
   }
+  const handleClick=()=>{
+    navigate("/")
+  }
 
   return (
     <>
       <header className={`nav-links ${menu ? 'active' : ''}`}>
         <p 
           className={`nav ${nav === 'home' ? 'active-nav' : ''}`} 
-          onClick={() => handleNav('home')}
+          onClick={() => {handleNav('home');handleClick()}}
         >
           Home
         </p>
@@ -32,10 +39,10 @@ const Page = () => {
           Plats Principaux
         </p>
         <div className='dropdown-content1'>
-        <a href="#">Sandwiche</a>
-        <a href="#">Taco</a>
-        <a href="#">Burger</a>
-        <a href="#">Plat</a>
+        <a href="/sandwiches">Sandwiches</a>
+        <a href="/tacos">Tacos</a>
+        <a href="/burgers">Burgers</a>
+        <a href="/plats">Plats</a>
         </div>
         </div>
         <div className='dropdown'>
@@ -47,9 +54,9 @@ const Page = () => {
           Specials
         </p>
         <div className='dropdown-content2'>
-        <a href="#">Pizza</a>
-        <a href="#">Salade</a>
-        <a href="#">TexMex</a>
+        <a href="/pizzas">Pizzas</a>
+        <a href="/salads">Salades</a>
+        <a href="/tex-mex">TexMex</a>
         
         </div>
         </div>
@@ -62,9 +69,8 @@ const Page = () => {
           Extras
         </p>
         <div className='dropdown-content3'>
-        <a href="#">Boisson</a>
-        <a href="#">Dessert</a>
-        
+        <a href="/boissons">Boissons</a>
+        <a href="/dessert">Desserts</a>
         </div>
         </div>
       </header>
