@@ -4,6 +4,15 @@ import { fetchfood } from "../../reducers/getAll";
 const Page = () => {
   const dispatch = useDispatch();
   const [food, setFood] = useState([]);
+  const [query, setQuery] = useState("");
+
+  const handleOnChange=(e)=>{
+    setQuery(e.target.value.toLowerCase());
+  }
+  const filteredFood = food.filter((item) => 
+    item.categorie.toLowerCase().includes(query) || 
+    item.detail.toLowerCase().includes(query)
+  );
 
   const fetchFood = async () => {
     try {
@@ -18,9 +27,12 @@ const Page = () => {
     fetchFood();
   }, []);
 
-  return (
+  return (<>
+    <div className='searchBarContainer'>
+    <input className='searchBar' onChange={handleOnChange} placeholder='Cherchez' type="text" />
+    </div>
     <div className='mainFoodContainer'>
-      {food.map((e) => {
+      {filteredFood.map((e) => {
         if(e.categorie==="Burger"){
           return<div key={e.id} className='foodCards'>
           <img className='cardsImg' src={e.imgUrl} alt={e.detail} />
@@ -32,6 +44,7 @@ const Page = () => {
       }
       )}
     </div>
+  </>
   )
 }
 

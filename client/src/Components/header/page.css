@@ -2,7 +2,7 @@ header {
     display: flex;
     justify-content: center;
     height: 100px;
-    margin-top: -150px;
+    margin-top: -190px;
   }
   
   .nav {
@@ -16,6 +16,7 @@ header {
     font-family: "Sour Gummy", sans-serif;
 
   }
+  
   
   .nav:hover {
     text-decoration: underline;

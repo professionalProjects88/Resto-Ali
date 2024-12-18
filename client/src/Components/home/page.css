@@ -23,6 +23,24 @@
 .foodCards:hover {
     transform: scale(1.05);
 }
+.searchBarContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+.searchBar{
+    margin-right: 220px;
+    margin-top: -63px;
+    height: 10px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(255, 255, 255,0.3)
+}
+.searchBar:focus {
+    outline: none;
+    border: none;
+    background-color: white;
+  }
 
 .cardsImg {
     border-radius: 10px;

@@ -1,0 +1,26 @@
+
+  .imageDetail{
+    width: 450px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  .detailContainer{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 70px;
+  }
+  .foodName{
+    margin-top: -10px;
+  }
+  .pagargraphDetailContainer{
+    width:500px;
+  }
+  .paragrapheDetail{
+    font-size: 20px;
+    font-family: "Sour Gummy", serif;
+  }
+  .price{
+    color: green;
+  }

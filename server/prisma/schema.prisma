@@ -32,5 +32,6 @@ model Food {
   imgUrl    String
   categorie Categorie
   detail    String
+  productDetails String
   price     Float
 }

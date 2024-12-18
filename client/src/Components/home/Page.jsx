@@ -6,6 +6,15 @@ import './page.css';
 const Page = () => {
   const dispatch = useDispatch();
   const [food, setFood] = useState([]);
+  const [query, setQuery] = useState("");
+
+  const handleOnChange=(e)=>{
+    setQuery(e.target.value.toLowerCase());
+  }
+  const filteredFood = food.filter((item) => 
+    item.categorie.toLowerCase().includes(query) || 
+    item.detail.toLowerCase().includes(query)
+  );
 
   const fetchFood = async () => {
     try {
@@ -21,8 +30,12 @@ const Page = () => {
   }, []);
 
   return (
+    <>
+    <div className='searchBarContainer'>
+    <input className='searchBar' onChange={handleOnChange} placeholder='Recherche' type="text" />
+    </div>
     <div className='mainFoodContainer'>
-      {food.map((e) => (
+      {filteredFood.map((e) => (
         <div key={e.id} className='foodCards'>
           <img className='cardsImg' src={e.imgUrl} alt={e.detail} />
           <h2 className='foodName'>{e.categorie} {e.detail}</h2>
@@ -30,6 +43,7 @@ const Page = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
