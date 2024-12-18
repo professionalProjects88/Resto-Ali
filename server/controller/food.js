@@ -3,10 +3,10 @@ const { food } = require("../database/index");
 module.exports = {
   addFood: async (req, res) => {
     try {
-      const { imgUrl,categorie, detail, price } = req.body;
+      const { imgUrl,categorie, detail,productDetails, price } = req.body;
 
       
-      if (!categorie || !detail || !price ||!imgUrl) {
+      if (!categorie || !detail || !price ||!imgUrl || !productDetails) {
         return res.status(400).json({ error: "All fields are required" });
       }
 
@@ -15,6 +15,7 @@ module.exports = {
           imgUrl,
           categorie,
           detail,
+          productDetails,
           price,
         },
       });
@@ -30,6 +31,15 @@ module.exports = {
         res.status(200).json(allFood.reverse())
     } catch (error) {
         throw(error)
+    }
+  },
+  getOne:async(req,res)=>{
+    const ID=req.params.id
+    try {
+      const oneFood=await food.findUnique({where:{id:parseInt(ID)}})
+      res.status(200).json(oneFood)
+    } catch (error) {
+      throw(error)
     }
   }
 };

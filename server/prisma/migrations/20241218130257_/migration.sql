@@ -9,6 +9,7 @@ CREATE TABLE "Food" (
     "imgUrl" TEXT NOT NULL,
     "categorie" "Categorie" NOT NULL,
     "detail" TEXT NOT NULL,
+    "productDetails" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
 
     CONSTRAINT "Food_pkey" PRIMARY KEY ("id")

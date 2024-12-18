@@ -11,6 +11,7 @@ import Salads from "./Components/salads/Page.jsx"
 import TexMex from "./Components/texmex/Page.jsx"
 import Boisson from "./Components/boissons/Page.jsx"
 import Dessert from "./Components/dessert/Page.jsx"
+import Details from "./Components/productDetail/Pages.jsx"
 import "./App.css"
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/tex-mex" element={<TexMex/>}/>
             <Route path="/boissons" element={<Boisson/>}/>
             <Route path="/dessert" element={<Dessert/>}/>
+            <Route path="/details/:foodId" element={<Details/>}/>
             {/* <Route path='/*' element={<a>not found</a>}/> */}
             </Routes>
         </BrowserRouter>

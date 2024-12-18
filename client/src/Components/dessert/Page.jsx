@@ -1,9 +1,20 @@
 import React,{useEffect,useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { fetchfood } from "../../reducers/getAll";
+import { useNavigate } from 'react-router-dom';
 const Page = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [food, setFood] = useState([]);
+  const [query, setQuery] = useState("");
+
+  const handleOnChange=(e)=>{
+    setQuery(e.target.value.toLowerCase());
+  }
+  const filteredFood = food.filter((item) => 
+    item.categorie.toLowerCase().includes(query) || 
+    item.detail.toLowerCase().includes(query)
+  );
 
   const fetchFood = async () => {
     try {
@@ -18,11 +29,14 @@ const Page = () => {
     fetchFood();
   }, []);
 
-  return (
+  return (<>
+    <div className='searchBarContainer'>
+    <input className='searchBar' onChange={handleOnChange} placeholder='Cherchez' type="text" />
+    </div>
     <div className='mainFoodContainer'>
-      {food.map((e) => {
+      {filteredFood.map((e) => {
         if(e.categorie==="Dessert"){
-          return<div key={e.id} className='foodCards'>
+          return<div key={e.id} className='foodCards' onClick={()=>navigate(`/details/${e.id}`)}>
           <img className='cardsImg' src={e.imgUrl} alt={e.detail} />
           <h2 className='foodName'>{e.categorie} {e.detail}</h2>
           <h1 className='prix'>{e.price.toFixed(2)} €</h1>
@@ -32,6 +46,7 @@ const Page = () => {
       }
       )}
     </div>
+  </>
   )
 }
 
