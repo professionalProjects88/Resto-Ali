@@ -38,7 +38,8 @@ const Page = () => {
         if(e.categorie==="Dessert"){
           return<div key={e.id} className='foodCards' onClick={()=>navigate(`/details/${e.id}`)}>
           <img className='cardsImg' src={e.imgUrl} alt={e.detail} />
-          <h2 className='foodName'>{e.categorie} {e.detail}</h2>
+          <h5 className='categorie-name'>{e.categorie} :</h5>
+          <h2 className='detail-name'>{e.detail}</h2>
           <h1 className='prix'>{e.price.toFixed(2)} €</h1>
         </div>
         }

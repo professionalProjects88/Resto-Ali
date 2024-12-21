@@ -34,7 +34,7 @@ const Pages = () => {
       )}
       {food ? (
         <div >
-        <h1  className='foodName'>{food.categorie} {food.detail}</h1>
+        <h1  className='foodName'>{food.detail}</h1>
         <br />
         <div className='pagargraphDetailContainer'>
         <h3 style={{color:"red"}}>Details :</h3>

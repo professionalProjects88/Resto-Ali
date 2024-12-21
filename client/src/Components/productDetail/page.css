@@ -13,6 +13,7 @@
   }
   .foodName{
     margin-top: -10px;
+    color: white;
   }
   .pagargraphDetailContainer{
     width:500px;
@@ -20,6 +21,7 @@
   .paragrapheDetail{
     font-size: 20px;
     font-family: "Sour Gummy", serif;
+    color: white;
   }
   .price{
     color: green;
