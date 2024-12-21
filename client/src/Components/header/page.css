@@ -2,28 +2,33 @@ header {
     display: flex;
     justify-content: center;
     height: 100px;
-    margin-top: -190px;
+    margin-top: -200px;
   }
   
   .nav {
     margin-left: 20px;
-    color: black;
+    color: rgb(215, 210, 210);
     padding: 3px;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: default;
     font-size: 30px;
     font-weight: bold;
     font-family: "Sour Gummy", sans-serif;
 
   }
+  .nav::first-letter{
+    color: red;
+  }
   
   
   .nav:hover {
     text-decoration: underline;
+    text-decoration-color: red;
   }
 
   .active-nav {
     text-decoration: underline; 
+    text-decoration-color: red;
   }
   
   .menu-toggle {

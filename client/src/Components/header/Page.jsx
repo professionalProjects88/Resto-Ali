@@ -27,14 +27,13 @@ const Page = () => {
       <header className={`nav-links ${menu ? 'active' : ''}`}>
         <p 
           className={`nav ${nav === 'home' ? 'active-nav' : ''}`} 
-          onClick={() => {handleNav('home');handleClick()}}
+          onClick={() => {handleClick()}}
         >
           Home
         </p>
         <div className='dropdown'>
         <p 
           className={`nav ${nav === 'Plats Principaux' ? 'active-nav' : ''}`} 
-          onClick={() => handleNav('Plats Principaux')}
         >
           Plats Principaux
         </p>
@@ -49,7 +48,6 @@ const Page = () => {
           
         <p 
           className={`nav ${nav === 'Specials' ? 'active-nav' : ''}`} 
-          onClick={() => handleNav('Specials')}
         >
           Specials
         </p>
@@ -64,7 +62,6 @@ const Page = () => {
 
         <p 
           className={`nav ${nav === 'Extras' ? 'active-nav' : ''}`} 
-          onClick={() => handleNav('Extras')}
         >
           Extras
         </p>
