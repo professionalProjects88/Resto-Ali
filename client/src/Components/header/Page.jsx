@@ -26,7 +26,8 @@ const Page = () => {
     <>
       <header className={`nav-links ${menu ? 'active' : ''}`}>
         <p 
-          className={`nav ${nav === 'home' ? 'active-nav' : ''}`} 
+          className={`nav  ${nav === 'home' ? 'active-nav' : 'n'}`} 
+          id='nav1'
           onClick={() => {handleClick()}}
         >
           Home

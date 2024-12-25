@@ -4,7 +4,9 @@ header {
     height: 100px;
     margin-top: -200px;
   }
-  
+  #nav1{
+    cursor: pointer;
+  }
   .nav {
     margin-left: 20px;
     color: rgb(215, 210, 210);

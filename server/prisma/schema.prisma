@@ -26,12 +26,20 @@ enum Categorie {
 }
 
 model Food {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  imgUrl    String
-  categorie Categorie
-  detail    String
+  id             Int       @id @default(autoincrement())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  imgUrl         String
+  categorie      Categorie
+  detail         String
   productDetails String
-  price     Float
+  price          Float
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  password  String
 }

@@ -11,9 +11,19 @@
     gap: 100px;
     margin-top: 70px;
   }
+  .firstLettre{
+    color: white;
+    font-weight: bold;
+  }
+  .firstLettre:first-letter{
+    color: red;
+  }
   .foodName{
     margin-top: -10px;
     color: white;
+  }
+  .foodName:first-letter{
+    color: red;
   }
   .pagargraphDetailContainer{
     width:500px;
