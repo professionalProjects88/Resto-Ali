@@ -6,7 +6,7 @@ export const fetchfood=createAsyncThunk(
     "getall/food",
     async()=>{
         try {
-            const response=await axios.get("http://localhost:3001/api/food/allFood")
+            const response=await axios.get(`http://localhost:3000/api/food/allFood`)
             return response.data
         } catch (error) {
             console.log("err : ",error);

@@ -37,9 +37,13 @@ const Pages = () => {
         <h1  className='foodName'>{food.detail}</h1>
         <br />
         <div className='pagargraphDetailContainer'>
-        <h3 style={{color:"red"}}>Details :</h3>
+        <h3 className='firstLettre'>Details :</h3>
         <p className='paragrapheDetail'>{food.productDetails}</p>
-        <h2 className='price'>Prix : {food.price} €</h2>
+        <span style={{display:"flex",gap:5}}>
+
+        <h2 className='firstLettre'>Prix : </h2>
+        <h2 className='price'>{food.price} €</h2>
+        </span>
         </div>
         </div>
       ) : (

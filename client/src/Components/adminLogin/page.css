@@ -1,0 +1,10 @@
+.adminLoginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 300px;
+    width: 500px;
+    margin-left: 520px;
+    border-radius: 20px;
+}
