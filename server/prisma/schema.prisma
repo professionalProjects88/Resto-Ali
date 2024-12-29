@@ -36,10 +36,17 @@ model Food {
   price          Float
 }
 
-model Admin {
+enum Role {
+  client
+  admin
+}
+
+model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  name      String
+  name      String   @unique
+  email     String   @default("")
+  role      Role     @default(client)
   password  String
 }

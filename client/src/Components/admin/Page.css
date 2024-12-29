@@ -1,0 +1,48 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  table {
+    width: 800px;
+    margin-left: 20px;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: #333;
+    color: white;
+  }
+  
+  th, td {
+    border: 1px solid #444;
+    padding: 10px;
+  }
+  td{
+    font-size: 20px;
+  }
+  th {
+    background-color: red;
+    color: white;
+  }
+  
+  .table-image {
+    height: 60px;
+    width: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+
+  }
+  .repasInput{
+    width: 200px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .pixInput{
+    width: 65px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+
+  }

@@ -13,6 +13,7 @@ import Boisson from "./Components/boissons/Page.jsx"
 import Dessert from "./Components/dessert/Page.jsx"
 import Details from "./Components/productDetail/Pages.jsx"
 import Admin from "./Components/adminLogin/Page.jsx"
+import AdminController from "./Components/admin/Page.jsx"
 import "./App.css"
 // import './App.css'
 import "./App.css"
@@ -37,6 +38,7 @@ function App() {
             <Route path="/dessert" element={<Dessert/>}/>
             <Route path="/details/:foodId" element={<Details/>}/>
             <Route path="/admin" element={<Admin/>}/>
+            <Route path="/admin-controller" element={<AdminController/>}/>
             {/* <Route path='/*' element={<a>not found</a>}/> */}
             </Routes>
         </BrowserRouter>
