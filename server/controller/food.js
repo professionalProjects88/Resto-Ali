@@ -41,5 +41,32 @@ module.exports = {
     } catch (error) {
       throw(error)
     }
+  },
+  deleteOne:async(req,res)=>{
+    const Id=req.params.id
+    try {
+      const deleteFood=await food.delete({where:{id:parseInt(Id)}})
+      res.status(200).json(deleteFood)
+    } catch (error) {
+      throw(error)
+    }
+  },
+  updateOne:async(req,res)=>{
+    const ID=req.params.id
+    try {
+      const { imgUrl,categorie, detail,productDetails, price } = req.body;
+      const updateFood=await food.update({where:{id:parseInt(ID)},
+      data: {
+        imgUrl,
+        categorie,
+        detail,
+        productDetails,
+        price,
+      }
+    })
+    res.status(200).json(updateFood)
+    } catch (error) {
+      throw(error)
+    }
   }
 };

@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const food = require('./routes/food');
 const user = require('./routes/user');

@@ -1,10 +1,51 @@
-.adminLoginContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .login-form {
+    margin-top: 50px;
+    padding: 40px;
+    border-radius: 5px;
+    width: 400px;
+    height: 350px;
+  }
+  
+  .welcome {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .welcome::first-letter{
+    color: red;
+  }
+  .eye{
+    margin-left: -25px;
+    cursor: pointer;
+  }
+  
+  .login-inputs {
+    width: 95%;
+    padding: 10px;
+    margin-top: -10px;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+  
+  .login-btn {
     background-color: white;
-    height: 300px;
-    width: 500px;
-    margin-left: 520px;
-    border-radius: 20px;
-}
+    border: 2px solid red;
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+  
+  .login-btn:hover {
+    background-color: red;
+    color: white;
+  }
+  .login-labels{
+    color: white;
+  }
+  .login-labels::first-letter{
+    color: red;
+  }
