@@ -4,27 +4,33 @@ import { useDispatch } from 'react-redux';
 import { fetchfood } from "../../reducers/getAll";
 import {deleteOne} from "../../reducers/deleteOne"
 import {updateOne} from "../../reducers/updateOne"
+import { fetchOne } from "../../reducers/getOne";
 import { TiEdit } from "react-icons/ti";
-import { FaRegSave } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import { Unstable_Popup as BasePopup } from '@mui/base/Unstable_Popup';
 
 const Page = () => {
   const [food,setFood]=useState([])
-  const [edit,setEdit]=useState({
-    imgUrl:"",
-    categorie:"",
-    detail:"",
-    productDetails:"",
-    price:null
-  })
+  const [edit,setEdit]=useState({})
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEdit((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const getOne=async(id)=>{
+    try {
+      const result=await dispatch(fetchOne(id))
+      setEdit(result.payload)
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
+  const [anchor, setAnchor] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchor(anchor ? null : event.currentTarget);
   };
+
+  const open = Boolean(anchor);
+  const id = open ? 'simple-popup' : undefined;
 
 
   const dispatch=useDispatch()
@@ -37,8 +43,6 @@ const Page = () => {
       }
     };
     useEffect(()=>{fetchFood()
-      console.log(edit,"de,oif");
-      
     },[])
 
     const del = async(id)=>{
@@ -53,15 +57,9 @@ const Page = () => {
       }
     }
 
-    const handleSave = async()=>{
-      try {
-        const result = await dispatch(updateOne(id))
-      } catch (error) {
-        
-      }
-    }
+    
 
-  return (
+  return (<>
     <div className="table-container">
       <table>
         <thead>
@@ -70,22 +68,18 @@ const Page = () => {
             <th>Repas</th>
             <th>Image</th>
             <th>Prix</th>
-            <th>Détails</th>
-            <th>
-            <FaRegSave style={{cursor:"pointer"}} size={25}/>
-            </th>
+            <th>Metre a jour</th>
+            <th>Supprimer</th>
           </tr>
         </thead>
         {food.map(e=>{
           return<tbody key={e.id}>
           <tr >
             <td>
-              <select style={{height:35,width:80,cursor:"pointer"}}  id="category">
-                <option value="pizza">{e.categorie}</option>
-              </select>
+              {e.categorie}
             </td>
             <td >
-              <input className="repasInput" onChange={handleChange} type="text"  defaultValue={e.detail}/>
+              {e.detail}
             </td>
             <td>
               <img
@@ -95,11 +89,11 @@ const Page = () => {
               />
             </td>
             <td style={{display:"flex",justifyContent:"center",alignItems:"center",gap:10}}>
-            <input className="pixInput" type="text" onChange={handleChange}   defaultValue={e.price} />
-            <p>$</p>
+            <p>{e.price} $</p>
             </td>
             <td>
-              <TiEdit style={{cursor:"pointer"}} size={30}/>
+              <TiEdit style={{cursor:"pointer"}} onClick={(event)=>{handleClick(event),getOne(e.id)}} size={30}/>
+              
             </td>
             <td onClick={()=>{del(e.id),fetchFood()}}>
               <MdDeleteOutline style={{cursor:"pointer"}} size={30}/>
@@ -111,6 +105,32 @@ const Page = () => {
         
       </table>
     </div>
+    <div>
+    <BasePopup  id={id} open={open} anchor={anchor}>
+    <form className="meal-form">
+  <label className="meal-label">Categorie de Repas:</label>
+  <select className="meal-select" id="">
+    <option value="">{edit.categorie}</option>
+  </select>
+  
+  <label className="meal-label" >Nom de Repas:</label>
+  <input className="meal-input" type="text" id="nomDeRepas" value={edit.detail} />
+  
+  <label className="meal-label">Image de Repas:</label>
+  <input className="meal-file" id="imageDeRepas" type="file" style={{cursor:"pointer"}}/>
+  
+  <label className="meal-label">Prix de Repas:</label>
+  <input className="meal-input" type="text" id="prixDeRepas" value={edit.price} />
+  
+  <label className="meal-label">Details de Repas:</label>
+  <textarea className="text-aria-input"  type="text" value={edit.productDetails}/>
+  
+  <button className="meal-button">Enregistrer</button>
+</form>
+
+              </BasePopup>
+    </div>
+  </>
   );
 };
 
