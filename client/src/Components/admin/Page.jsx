@@ -23,16 +23,7 @@ const Page = () => {
     }
   }
 
-  const updateOneCard = async (id, event) => {
-    event.preventDefault(); // Prevent default form submission if applicable
-    try {
-      const result = await dispatch(updateOne(id, edit));
-      // Handle successful update (e.g., close popup, update UI)
-    } catch (error) {
-      console.log(error);
-      // Handle update error
-    }
-  };
+  
 
   const [anchor, setAnchor] = useState(null);
 
@@ -43,13 +34,7 @@ const Page = () => {
   const open = Boolean(anchor);
   const id = open ? 'simple-popup' : undefined;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEdit((prevState) => ({
-      ...prevState, 
-      [name]: value, 
-    }));
-  };
+  
 
   const dispatch=useDispatch()
   const fetchFood = async () => {
@@ -61,7 +46,6 @@ const Page = () => {
       }
     };
     useEffect(()=>{fetchFood()
-      console.log(edit,"food");
       
       
     },[])
@@ -135,18 +119,18 @@ const Page = () => {
   </select>
   
   <label className="meal-label" >Nom de Repas:</label>
-  <input className="meal-input" type="text" id="nomDeRepas" name="detail" onChange={handleChange} value={edit.detail || ""} />
+  <input className="meal-input" type="text" id="nomDeRepas" name="detail"  defaultValue={edit.detail || ""} />
   
   <label className="meal-label">Image de Repas:</label>
   <input className="meal-file" id="imageDeRepas" type="file" style={{cursor:"pointer"}}/>
   
   <label className="meal-label">Prix de Repas:</label>
-  <input className="meal-input" type="text" id="prixDeRepas" name="price" onChange={handleChange} value={edit.price || ""} />
+  <input className="meal-input" type="text" id="prixDeRepas" name="price"  defaultValue={edit.price || ""} />
   
   <label className="meal-label">Details de Repas:</label>
-  <textarea className="text-aria-input"  type="text" name="productDetails" onChange={handleChange} value={edit.productDetails || ""}/>
+  <textarea className="text-aria-input"  type="text" name="productDetails"  defaultValue={edit.productDetails || ""}/>
   
-  <button className="meal-button" onClick={(event)=>updateOneCard(edit.id,event)}>Enregistrer</button>
+  <button className="meal-button" >Enregistrer</button>
 </form>
 
               </BasePopup>
