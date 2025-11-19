@@ -8,8 +8,8 @@
     "nodemon": "^3.1.7"
   },
   "scripts": {
-    "server": "nodemon index.js",
-    "heroku-postbuild": "cd ../client && npm install && npm run build"
+    "server": "node index.js",
+    "build": "cd ../client && npm install && npm run build"
   },
   "name": "server",
   "version": "1.0.0",
