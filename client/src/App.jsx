@@ -37,8 +37,8 @@ function App() {
             <Route path="/boissons" element={<Boisson/>}/>
             <Route path="/dessert" element={<Dessert/>}/>
             <Route path="/details/:foodId" element={<Details/>}/>
-            <Route path="/admin" element={<Admin/>}/>
-            <Route path="/admin-controller" element={<AdminController/>}/>
+            {/* <Route path="/admin" element={<Admin/>}/>
+            <Route path="/admin-controller" element={<AdminController/>}/> */}
             {/* <Route path='/*' element={<a>not found</a>}/> */}
             </Routes>
         </BrowserRouter>
