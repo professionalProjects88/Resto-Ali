@@ -3,6 +3,8 @@ const app = express();
 const food = require('./routes/food');
 const user = require('./routes/user');
 const cors = require("cors");
+const path = require('path');
+
 app.use(express.json());
 app.use(cors());
 app.use("/api/food", food);
