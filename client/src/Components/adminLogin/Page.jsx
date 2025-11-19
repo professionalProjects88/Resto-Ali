@@ -30,7 +30,7 @@ const Page = () => {
       const  result = await dispatch(signIn(login));
       const token = result.payload.token;
       localStorage.setItem("token", token);
-      console.log("Token set successfully");
+      console.log("Token set successfully",to);
       isAuthenticated()
     } catch (error) {
       console.log("An unexpected error occurred:", error);
@@ -39,6 +39,7 @@ const Page = () => {
 
   const isAuthenticated = () => {
     const token = localStorage.getItem("token");
+    
     const decodedToken = jwtDecode(token);
     if(decodedToken.role==="admin"){
         navigate("/admin-controller")
