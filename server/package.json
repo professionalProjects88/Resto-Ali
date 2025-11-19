@@ -9,7 +9,7 @@
   },
   "scripts": {
     "server": "nodemon index.js",
-    "heroku-postbuild": "cd ../client && npm install && npm run build"
+    "build": "cd ../client && npm install && npm run build"
   },
   "name": "server",
   "version": "1.0.0",
