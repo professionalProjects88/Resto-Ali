@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import "./page.css";
+import "./Page.css";
 import { useDispatch } from 'react-redux';
 import { fetchfood } from "../../reducers/getAll";
 import {deleteOne} from "../../reducers/deleteOne"
