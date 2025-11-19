@@ -30,6 +30,7 @@ module.exports = {
         const allFood=await food.findMany({})
         res.status(200).json(allFood.reverse())
     } catch (error) {
+      console.log(error);
         throw(error)
     }
   },
