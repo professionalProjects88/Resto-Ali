@@ -9,7 +9,7 @@ app.use("/api/food", food);
 app.use("/api/user", user);
 
 
-const port=3000
+const port=process.env.PORT
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
